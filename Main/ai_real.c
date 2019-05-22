@@ -168,37 +168,42 @@ void Game0()
     {
         Duration = 7;
         CurAction =3;
+        if(true)
+        {
+            Duration = 0;
+            CurAction =4;
+        }
     }
     else if((((CSLeft_R>200&&CSLeft_G>=130&&CSLeft_G<160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=130&&CSRight_G<160&&CSRight_B<10))&&LoadedObjects>0))
     {
         Duration = 59;
-        CurAction =4;
+        CurAction =5;
     }
     else if(((CSLeft_B<=50&&CSLeft_G<=50&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G<=50&&CSRight_R<=50))&&LoadedObjects<6)
     {
         Duration = 49;
-        CurAction =5;
+        CurAction =6;
     }
     else if(((CSLeft_B>=200&&CSLeft_G>=200&&CSLeft_R<=50)||(CSRight_B>=200&&CSRight_G>=200&&CSRight_R<=50))&&LoadedObjects<6
 )
     {
         Duration = 49;
-        CurAction =6;
+        CurAction =7;
     }
     else if(((CSLeft_R>220&&CSLeft_G<90&&CSLeft_B<90)||(CSRight_R>220&&CSRight_B<90&&CSRight_G<90))&&LoadedObjects<6)
     {
         Duration = 49;
-        CurAction =7;
+        CurAction =8;
     }
     else if(US_Front>=0 && US_Front<=10)
     {
         Duration = 0;
-        CurAction =8;
+        CurAction =9;
     }
     else if(true)
     {
         Duration = 0;
-        CurAction =9;
+        CurAction =10;
     }
     switch(CurAction)
     {
@@ -252,6 +257,12 @@ WheelRight = -2;
         case 4:
             WheelLeft=0;
             WheelRight=0;
+            LED_1=0;
+            MyState=0;
+            break;
+        case 5:
+            WheelLeft=0;
+            WheelRight=0;
             LED_1=2;
             MyState=0;
             if(Duration==1){
@@ -265,18 +276,6 @@ WheelRight=-5;
                     
 }
             if(Duration == 1) {LoadedObjects = 0; } 
-            break;
-        case 5:
-            WheelLeft=0;
-            WheelRight=0;
-            LED_1=1;
-            MyState=0;
-            if(Duration == 1) LoadedObjects++;
-            if(Duration < 6)
-            {
-                WheelLeft = 2;
-                WheelRight = 2;
-            }
             break;
         case 6:
             WheelLeft=0;
@@ -303,6 +302,18 @@ WheelRight=-5;
             }
             break;
         case 8:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=1;
+            MyState=0;
+            if(Duration == 1) LoadedObjects++;
+            if(Duration < 6)
+            {
+                WheelLeft = 2;
+                WheelRight = 2;
+            }
+            break;
+        case 9:
             WheelLeft=3;
             WheelRight=-2;
             LED_1=0;
@@ -318,7 +329,7 @@ WheelRight = 3;
 
 
             break;
-        case 9:
+        case 10:
             WheelLeft=2;
             WheelRight=2;
             LED_1=0;
