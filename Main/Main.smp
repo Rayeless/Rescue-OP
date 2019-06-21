@@ -858,132 +858,14 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 6){
-
+        <Adv_Action>if (US_Left &gt; 5){
 WheelLeft = -2;
-WheelRight = -2;
-
-}else if (US_Left &gt; 5){
-WheelLeft = -2;
-WheelRight = 3;
-}else{
-
-WheelLeft = 3;
-WheelRight = -2;
-
+WheelRight = 1;
 }
-
 
 </Adv_Action>
         <State_Action />
         <Duration>8</Duration>
-        <KeyAction>None</KeyAction>
-      </Action>
-    </Node>
-    <Node>
-      <Name>Statement-3</Name>
-      <Level>2</Level>
-      <Index>0</Index>
-      <IsLeaf>true</IsLeaf>
-      <State>
-        <Sensores_x0020_Ranage>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>0</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>1</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>2</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>3</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>4</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>5</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>6</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>7</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>8</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>9</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>10</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>11</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>360</ValMax>
-            <index>12</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>13</index>
-          </Sennsor>
-        </Sensores_x0020_Ranage>
-        <Adv_State />
-        <AndOr>&amp;&amp;</AndOr>
-      </State>
-      <Action>
-        <Actions>
-          <Action>
-            <val>0</val>
-            <index>0</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>1</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>2</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>3</index>
-          </Action>
-        </Actions>
-        <type>Default</type>
-        <Adv_Action />
-        <State_Action />
-        <Duration>1</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node>
@@ -1972,132 +1854,14 @@ WheelRight = 3;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 6){
-
+        <Adv_Action>if (US_Left &gt; 5){
 WheelLeft = -2;
-WheelRight = -2;
-
-}else if (US_Left &gt; 5){
-WheelLeft = -2;
-WheelRight = 3;
-}else{
-
-WheelLeft = 3;
-WheelRight = -2;
-
+WheelRight = 1;
 }
-
 
 </Adv_Action>
         <State_Action />
         <Duration>8</Duration>
-        <KeyAction>None</KeyAction>
-      </Action>
-    </Node0>
-    <Node0>
-      <Name>Statement-3</Name>
-      <Level>2</Level>
-      <Index>0</Index>
-      <IsLeaf>true</IsLeaf>
-      <State>
-        <Sensores_x0020_Ranage>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>0</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>1</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>2</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>3</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>4</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>5</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>6</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>7</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>8</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>9</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>10</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>11</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>360</ValMax>
-            <index>12</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>13</index>
-          </Sennsor>
-        </Sensores_x0020_Ranage>
-        <Adv_State />
-        <AndOr>&amp;&amp;</AndOr>
-      </State>
-      <Action>
-        <Actions>
-          <Action>
-            <val>0</val>
-            <index>0</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>1</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>2</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>3</index>
-          </Action>
-        </Actions>
-        <type>Default</type>
-        <Adv_Action />
-        <State_Action />
-        <Duration>1</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node0>
@@ -3652,7 +3416,7 @@ WheelRight = 3;
     </AutoScrollPostion>
   </Game8>
   <ProjectName>Main</ProjectName>
-  <ProjectFolder>C:\Users\kevin.mi\Desktop\Rescue-OP\Main\</ProjectFolder>
+  <ProjectFolder>C:\Microsoft Robotics Dev Studio\CS\User\Rescue\CsBot\Simulation\Main\</ProjectFolder>
   <RobotID>02</RobotID>
   <IRD_Threshold1>0</IRD_Threshold1>
   <IRD_Threshold2>0</IRD_Threshold2>
