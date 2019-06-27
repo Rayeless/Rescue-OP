@@ -33,6 +33,8 @@ int SuperObj_X = 0;
 int SuperObj_Y = 0;
 int Teleport = 0;
 int LoadedObjects = 0;
+int xHold = -1;
+int yHold = -1;
 int US_Front = 0;
 int US_Left = 0;
 int US_Right = 0;
@@ -77,13 +79,13 @@ DLL_EXPORT int IsGameEnd()
 DLL_EXPORT char* GetDebugInfo()
 {
     char info[1024];
-    sprintf(info, "Duration=%d;SuperDuration=%d;bGameEnd=%d;CurAction=%d;CurGame=%d;SuperObj_Num=%d;SuperObj_X=%d;SuperObj_Y=%d;Teleport=%d;LoadedObjects=%d;US_Front=%d;US_Left=%d;US_Right=%d;CSLeft_R=%d;CSLeft_G=%d;CSLeft_B=%d;CSRight_R=%d;CSRight_G=%d;CSRight_B=%d;PositionX=%d;PositionY=%d;TM_State=%d;Compass=%d;Time=%d;WheelLeft=%d;WheelRight=%d;LED_1=%d;MyState=%d;",Duration,SuperDuration,bGameEnd,CurAction,CurGame,SuperObj_Num,SuperObj_X,SuperObj_Y,Teleport,LoadedObjects,US_Front,US_Left,US_Right,CSLeft_R,CSLeft_G,CSLeft_B,CSRight_R,CSRight_G,CSRight_B,PositionX,PositionY,TM_State,Compass,Time,WheelLeft,WheelRight,LED_1,MyState);
+    sprintf(info, "Duration=%d;SuperDuration=%d;bGameEnd=%d;CurAction=%d;CurGame=%d;SuperObj_Num=%d;SuperObj_X=%d;SuperObj_Y=%d;Teleport=%d;LoadedObjects=%d;xHold=%d;yHold=%d;US_Front=%d;US_Left=%d;US_Right=%d;CSLeft_R=%d;CSLeft_G=%d;CSLeft_B=%d;CSRight_R=%d;CSRight_G=%d;CSRight_B=%d;PositionX=%d;PositionY=%d;TM_State=%d;Compass=%d;Time=%d;WheelLeft=%d;WheelRight=%d;LED_1=%d;MyState=%d;",Duration,SuperDuration,bGameEnd,CurAction,CurGame,SuperObj_Num,SuperObj_X,SuperObj_Y,Teleport,LoadedObjects,xHold,yHold,US_Front,US_Left,US_Right,CSLeft_R,CSLeft_G,CSLeft_B,CSRight_R,CSRight_G,CSRight_B,PositionX,PositionY,TM_State,Compass,Time,WheelLeft,WheelRight,LED_1,MyState);
     return info;
 }
  
 DLL_EXPORT char* GetTeamName()
 {
-     return "";
+     return "CoSpace Team";
 }
 
 DLL_EXPORT int GetCurAction()
@@ -159,7 +161,9 @@ void Game0()
         Duration = 0;
         CurAction =1;
     }
-    else if(CSLeft_R>=0 && CSLeft_R<=10 && CSLeft_G>=90 && CSLeft_G<=120 && CSRight_R>=0 && CSRight_R<=10 && CSRight_G>=90 && CSRight_G<=120 && CSRight_B>=200 && CSRight_B<=255)
+    else if(((CSLeft_B>=200&&CSLeft_G<=70&&CSLeft_R<=70)||(CSRight_B>=200&&CSRight_G<=70&&CSRight_R<=70))&&LoadedObjects<6
+
+)
     {
         Duration = 1;
         CurAction =2;
@@ -169,7 +173,7 @@ void Game0()
         Duration = 7;
         CurAction =3;
     }
-    else if((((CSLeft_R>200&&CSLeft_G>=130&&CSLeft_G<160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=130&&CSRight_G<160&&CSRight_B<10))&&LoadedObjects>0))
+    else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0))
     {
         Duration = 59;
         CurAction =4;
@@ -179,7 +183,7 @@ void Game0()
         Duration = 49;
         CurAction =5;
     }
-    else if(((CSLeft_B>=200&&CSLeft_G>=200&&CSLeft_R<=50)||(CSRight_B>=200&&CSRight_G>=200&&CSRight_R<=50))&&LoadedObjects<6
+    else if(((CSLeft_B<=50&&CSLeft_G>=230&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G>=230&&CSRight_R<=50))&&LoadedObjects<6
 )
     {
         Duration = 49;
@@ -207,7 +211,7 @@ void Game0()
             WheelRight=0;
             LED_1=0;
             MyState=0;
-             Teleport =1;  
+             Teleport =3;  
             LoadedObjects = 0;
             WheelLeft = 0;  WheelRight = 0;  LED_1=0;
             Duration = 0;   SuperDuration = 0;
