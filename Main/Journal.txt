@@ -1,0 +1,33 @@
+March 22nd, 2019
+
+Started first project, working on introductions and how to set things up, as well as learning interface. 
+Added pickup for red, cyan, and black. 
+Added deposit, teleport, and avoid features.
+Added moving for deposit, making it move forward instead of reversing out and turning.
+Finished the basics of W1 and W2.
+Attempted to fix object counting after encountering lost zone. Failed.
+
+April 20th, 2019
+
+Improved avoiding the yellow, by reading the distance of both left and right, and turning to the direction where the the distance is higher to avoid turning around.
+Started thinking about algorhythm for W2, but only figured the X and Y coordinates. 
+Found the issue about how the LoadedObjects variable did not increment when picking up object.
+
+June 12th, 2019
+
+Talked about algorhytm for W2.
+Thinking about having variables that hold X and Y of deposit zone, then according to our current position, try to track our way back.
+Also might just have the robot run by itself.
+
+June 22th, 2019
+
+Altered the avoiding feature for W1, making it turn a certain direction instead of using the sensors to direct turning.
+Might make robot last in W1 for 5 minutes, as it is usually easier to deal with.
+
+June 27th, 2019
+
+Started to work on algorhythm. Using compass to tell which direction that the robot needs to be facing according to the direction that it has to go. 
+Some reason, cyan blocks changed into green, so a minor change there.
+Had to add boundaries, for the W2 I was using. Colours are a bit off in general, so just minor adjusting between everything.
+Programmed part of algorhythm. Going to use while loops to spin robots so compass is in the correct position. Then just make it move forward in that statement, reducing the need for other sub-statements.
+Added the state manager exit condition for algorhythm.

@@ -653,9 +653,9 @@
   </SM_x0020_States>
   <SM_x0020_Nodes>
     <Node>
-      <Name>Outside</Name>
+      <Name>Set-Deposit</Name>
       <Level>1</Level>
-      <Index>1</Index>
+      <Index>0</Index>
       <IsLeaf>true</IsLeaf>
       <State>
         <Sensores_x0020_Ranage>
@@ -730,18 +730,19 @@
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;230&amp;&amp;CSLeft_G&gt;230&amp;&amp;CSLeft_B&gt;10&amp;&amp;CSLeft_B&lt;70)||(CSRight_R&gt;230&amp;&amp;CSRight_G&gt;230&amp;&amp;CSRight_B&gt;10&amp;&amp;CSRight_B&lt;70))
+        <Adv_State>(((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;=160&amp;&amp;CSLeft_B&lt;10)&amp;&amp;(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;=160&amp;&amp;CSRight_B&lt;10)))
+
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -754,22 +755,10 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 6){
-
-WheelLeft = -2;
-WheelRight = -2;
-
-}else if (US_Right &gt; 5){
-WheelLeft = 3;
-WheelRight = -2;
-}else{
-
-WheelLeft = -2;
-WheelRight = 3;
-
-}</Adv_Action>
+        <Adv_Action>xHold = PositionX;
+yHold = PositionY;</Adv_Action>
         <State_Action />
-        <Duration>10</Duration>
+        <Duration>1</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node>
@@ -1002,8 +991,6 @@ WheelRight = 3;
         <type>Default</type>
         <Adv_Action>if(Duration==1){
 LoadedObjects=0;
-xHold = PositionX;
-yHold = PositionY;
 }</Adv_Action>
         <State_Action />
         <Duration>60</Duration>
@@ -1112,11 +1099,89 @@ yHold = PositionY;
         </Actions>
         <ExitState>DAO</ExitState>
         <type>Non_Interrupt</type>
-        <Adv_Action>if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold){
+        <Adv_Action>/*
+		 0
+		 |
+		 |
+  90 - - + - - 270
+		 |
+		 |
+		180
 
 
+*/
+
+
+printf("init");
+
+if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 145 &amp;&amp; Compass &lt;= 125){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Down
+}
+else if (PositionX &gt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 55 &amp;&amp; Compass &lt;= 35)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Up
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 235 &amp;&amp; Compass &lt;= 215){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Down
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 325 &amp;&amp; Compass &lt;= 305)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Up
+}
+
+
+//------------------------------------------------------------------------------
+
+else if (PositionX &gt; xHold &amp;&amp; Compass &gt;= 100 &amp;&amp; Compass &lt;= 80)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;	
+
+//Left
+}
+else if (PositionX &lt; xHold &amp;&amp; Compass &gt;= 280 &amp;&amp; Compass &lt;= 260) {
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right
+}
+else if (PositionY &gt; yHold &amp;&amp; Compass &gt;= 190 &amp;&amp; Compass &lt;= 170)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+	
+//Down
+}
+else if (PositionY &lt; yHold &amp;&amp; Compass &gt;= 10 &amp;&amp; Compass &lt;= 350)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Up
+}
+else 	{
+
+	WheelLeft = 3;
+	WheelRight = 3;
 
 }
+
+
 
 </Adv_Action>
         <State_Action />
@@ -1665,6 +1730,142 @@ WheelRight = 3;
         <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
+      </Action>
+    </Node>
+    <Node>
+      <Name>Outside</Name>
+      <Level>1</Level>
+      <Index>1</Index>
+      <IsLeaf>true</IsLeaf>
+      <State>
+        <Sensores_x0020_Ranage>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>0</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>1</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>2</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>3</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>4</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>5</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>6</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>7</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>8</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>9</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>10</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>11</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>360</ValMax>
+            <index>12</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>13</index>
+          </Sennsor>
+        </Sensores_x0020_Ranage>
+        <Adv_State>((PositionX&lt;=5)||(PositionX&gt;=350)||
+(PositionY&lt;=5)||(PositionY&gt;=260))
+
+&amp;&amp;
+
+(PositionX!=0 &amp;&amp; PositionY!=0)</Adv_State>
+        <AndOr>&amp;&amp;</AndOr>
+      </State>
+      <Action>
+        <Actions>
+          <Action>
+            <val>0</val>
+            <index>0</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>1</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>2</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>3</index>
+          </Action>
+        </Actions>
+        <type>Default</type>
+        <Adv_Action>if (PositionX&lt;=5){
+   while (Compass!=270){
+   WheelLeft = -1;
+   WheelRight = 1;
+   }
+
+}
+else if (PositionX&gt;=350)	{
+	while (Compass!=90) {
+		WheelLeft = -1;
+		WheelRight = 1;
+	}
+}
+else if (PositionY&lt;=5)	{
+	while (Compass!=0) {
+		WheelLeft = -1;
+		WheelRight = 1;
+	}
+}
+else if (PositionY&gt;=260)	{
+	while (Compass!=180) {
+		WheelLeft = -1;
+		WheelRight = 1;
+	}
+}</Adv_Action>
+        <State_Action />
+        <Duration>34</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node>
@@ -2681,9 +2882,9 @@ WheelRight = 3;
   </Game0>
   <SM_x0020_Nodes1>
     <Node1>
-      <Name>Outside</Name>
+      <Name>Set-Deposit</Name>
       <Level>1</Level>
-      <Index>1</Index>
+      <Index>0</Index>
       <IsLeaf>true</IsLeaf>
       <State>
         <Sensores_x0020_Ranage>
@@ -2758,18 +2959,19 @@ WheelRight = 3;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;230&amp;&amp;CSLeft_G&gt;230&amp;&amp;CSLeft_B&gt;10&amp;&amp;CSLeft_B&lt;70)||(CSRight_R&gt;230&amp;&amp;CSRight_G&gt;230&amp;&amp;CSRight_B&gt;10&amp;&amp;CSRight_B&lt;70))
+        <Adv_State>(((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;=160&amp;&amp;CSLeft_B&lt;10)&amp;&amp;(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;=160&amp;&amp;CSRight_B&lt;10)))
+
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -2782,22 +2984,10 @@ WheelRight = 3;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 6){
-
-WheelLeft = -2;
-WheelRight = -2;
-
-}else if (US_Right &gt; 5){
-WheelLeft = 3;
-WheelRight = -2;
-}else{
-
-WheelLeft = -2;
-WheelRight = 3;
-
-}</Adv_Action>
+        <Adv_Action>xHold = PositionX;
+yHold = PositionY;</Adv_Action>
         <State_Action />
-        <Duration>10</Duration>
+        <Duration>1</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node1>
@@ -3030,8 +3220,6 @@ WheelRight = 3;
         <type>Default</type>
         <Adv_Action>if(Duration==1){
 LoadedObjects=0;
-xHold = PositionX;
-yHold = PositionY;
 }</Adv_Action>
         <State_Action />
         <Duration>60</Duration>
@@ -3140,11 +3328,89 @@ yHold = PositionY;
         </Actions>
         <ExitState>DAO</ExitState>
         <type>Non_Interrupt</type>
-        <Adv_Action>if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold){
+        <Adv_Action>/*
+		 0
+		 |
+		 |
+  90 - - + - - 270
+		 |
+		 |
+		180
 
 
+*/
+
+
+printf("init");
+
+if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 145 &amp;&amp; Compass &lt;= 125){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Down
+}
+else if (PositionX &gt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 55 &amp;&amp; Compass &lt;= 35)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Up
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 235 &amp;&amp; Compass &lt;= 215){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Down
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 325 &amp;&amp; Compass &lt;= 305)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Up
+}
+
+
+//------------------------------------------------------------------------------
+
+else if (PositionX &gt; xHold &amp;&amp; Compass &gt;= 100 &amp;&amp; Compass &lt;= 80)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;	
+
+//Left
+}
+else if (PositionX &lt; xHold &amp;&amp; Compass &gt;= 280 &amp;&amp; Compass &lt;= 260) {
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right
+}
+else if (PositionY &gt; yHold &amp;&amp; Compass &gt;= 190 &amp;&amp; Compass &lt;= 170)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+	
+//Down
+}
+else if (PositionY &lt; yHold &amp;&amp; Compass &gt;= 10 &amp;&amp; Compass &lt;= 350)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Up
+}
+else 	{
+
+	WheelLeft = 3;
+	WheelRight = 3;
 
 }
+
+
 
 </Adv_Action>
         <State_Action />
@@ -3693,6 +3959,142 @@ WheelRight = 3;
         <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
+      </Action>
+    </Node1>
+    <Node1>
+      <Name>Outside</Name>
+      <Level>1</Level>
+      <Index>1</Index>
+      <IsLeaf>true</IsLeaf>
+      <State>
+        <Sensores_x0020_Ranage>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>0</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>1</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>2</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>3</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>4</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>5</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>6</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>7</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>8</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>9</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>10</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>11</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>360</ValMax>
+            <index>12</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>13</index>
+          </Sennsor>
+        </Sensores_x0020_Ranage>
+        <Adv_State>((PositionX&lt;=5)||(PositionX&gt;=350)||
+(PositionY&lt;=5)||(PositionY&gt;=260))
+
+&amp;&amp;
+
+(PositionX!=0 &amp;&amp; PositionY!=0)</Adv_State>
+        <AndOr>&amp;&amp;</AndOr>
+      </State>
+      <Action>
+        <Actions>
+          <Action>
+            <val>0</val>
+            <index>0</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>1</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>2</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>3</index>
+          </Action>
+        </Actions>
+        <type>Default</type>
+        <Adv_Action>if (PositionX&lt;=5){
+   while (Compass!=270){
+   WheelLeft = -1;
+   WheelRight = 1;
+   }
+
+}
+else if (PositionX&gt;=350)	{
+	while (Compass!=90) {
+		WheelLeft = -1;
+		WheelRight = 1;
+	}
+}
+else if (PositionY&lt;=5)	{
+	while (Compass!=0) {
+		WheelLeft = -1;
+		WheelRight = 1;
+	}
+}
+else if (PositionY&gt;=260)	{
+	while (Compass!=180) {
+		WheelLeft = -1;
+		WheelRight = 1;
+	}
+}</Adv_Action>
+        <State_Action />
+        <Duration>34</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node1>

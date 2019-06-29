@@ -330,10 +330,11 @@ void Game1()
     {
         Duration--;
     }
-    else if(((CSLeft_R>230&&CSLeft_G>230&&CSLeft_B>10&&CSLeft_B<70)||(CSRight_R>230&&CSRight_G>230&&CSRight_B>10&&CSRight_B<70))
+    else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10)))
+
 )
     {
-        Duration = 9;
+        Duration = 0;
         CurAction =1;
     }
     else if(((CSLeft_R>200&&CSLeft_G>200&&CSLeft_B<10)||(CSRight_R>200&&CSRight_G>200&&CSRight_B<10)))
@@ -379,33 +380,27 @@ void Game1()
         Duration = 0;
         CurAction =9;
     }
+    else if(((PositionX<=5)||(PositionX>=350)||
+(PositionY<=5)||(PositionY>=260))
+
+&&
+
+(PositionX!=0&&PositionY!=0))
+    {
+        Duration = 33;
+        CurAction =10;
+    }
     switch(CurAction)
     {
         case 1:
-            WheelLeft=0;
-            WheelRight=0;
+            WheelLeft=2;
+            WheelRight=2;
             LED_1=0;
             MyState=0;
-            if (Duration < 6){
-
-WheelLeft = -2;
+            xHold = PositionX;
                     
-WheelRight = -2;
+yHold = PositionY;
                     
-
-}else if (US_Right > 5){
-WheelLeft = 3;
-                    
-WheelRight = -2;
-                    
-}else{
-
-WheelLeft = -2;
-                    
-WheelRight = 3;
-                    
-
-}
             break;
         case 2:
             WheelLeft=0;
@@ -446,10 +441,6 @@ WheelRight = 3;
             if(Duration==1){
 LoadedObjects=0;
                     
-xHold = PositionX;
-                    
-yHold = PositionY;
-                    
 }
             if(Duration == 1) {LoadedObjects = 0; } 
             break;
@@ -458,11 +449,108 @@ yHold = PositionY;
             WheelRight=0;
             LED_1=0;
             MyState=0;
-            if (PositionX > xHold && PositionY > yHold){
+            /*
+		 0
+		 |
+		 |
+  90 - - + - - 270
+		 |
+		 |
+		180
 
 
+*/
+
+
+printf("init");
+                    
+
+if (PositionX > xHold && PositionY > yHold && Compass >= 145 && Compass <= 125){
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+
+//Left, Down
+}
+else if (PositionX > xHold && PositionY < yHold && Compass >= 55 && Compass <= 35)	{
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+
+//Left, Up
+}
+else if (PositionX < xHold && PositionY > yHold && Compass >= 235 && Compass <= 215){
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+
+//Right, Down
+}
+else if (PositionX < xHold && PositionY < yHold && Compass >= 325 && Compass <= 305)	{
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+
+//Right, Up
+}
+
+
+//------------------------------------------------------------------------------
+
+else if (PositionX > xHold && Compass >= 100 && Compass <= 80)	{
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    	
+
+//Left
+}
+else if (PositionX < xHold && Compass >= 280 && Compass <= 260) {
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+
+//Right
+}
+else if (PositionY > yHold && Compass >= 190 && Compass <= 170)	{
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+	
+//Down
+}
+else if (PositionY < yHold && Compass >= 10 && Compass <= 350)	{
+
+	WheelLeft = -1;
+                    
+	WheelRight = 1;
+                    
+
+//Up
+}
+else 	{
+
+	WheelLeft = 3;
+                    
+	WheelRight = 3;
+                    
 
 }
+
+
 
 
  Duration = 128;
@@ -542,6 +630,45 @@ WheelRight = 3;
             WheelRight=2;
             LED_1=0;
             MyState=0;
+            break;
+        case 10:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=0;
+            MyState=0;
+            if (PositionX<=5){
+   while (Compass!=270){
+   WheelLeft = -1;
+                    
+   WheelRight = 1;
+                    
+   }
+
+}
+else if (PositionX>=350)	{
+	while (Compass!=90) {
+		WheelLeft = -1;
+                    
+		WheelRight = 1;
+                    
+	}
+}
+else if (PositionY<=5)	{
+	while (Compass!=0) {
+		WheelLeft = -1;
+                    
+		WheelRight = 1;
+                    
+	}
+}
+else if (PositionY>=260)	{
+	while (Compass!=180) {
+		WheelLeft = -1;
+                    
+		WheelRight = 1;
+                    
+	}
+}
             break;
         default:
             break;
