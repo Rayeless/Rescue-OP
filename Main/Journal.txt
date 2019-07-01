@@ -10,7 +10,7 @@ Attempted to fix object counting after encountering lost zone. Failed.
 April 20th, 2019
 
 Improved avoiding the yellow, by reading the distance of both left and right, and turning to the direction where the the distance is higher to avoid turning around.
-Started thinking about algorhythm for W2, but only figured the X and Y coordinates. 
+Started thinking about algorithm for W2, but only figured the X and Y coordinates. 
 Found the issue about how the LoadedObjects variable did not increment when picking up object.
 
 June 12th, 2019
@@ -26,8 +26,19 @@ Might make robot last in W1 for 5 minutes, as it is usually easier to deal with.
 
 June 27th, 2019
 
-Started to work on algorhythm. Using compass to tell which direction that the robot needs to be facing according to the direction that it has to go. 
+Started to work on algorithm. Using compass to tell which direction that the robot needs to be facing according to the direction that it has to go. 
 Some reason, cyan blocks changed into green, so a minor change there.
 Had to add boundaries, for the W2 I was using. Colours are a bit off in general, so just minor adjusting between everything.
-Programmed part of algorhythm. Going to use while loops to spin robots so compass is in the correct position. Then just make it move forward in that statement, reducing the need for other sub-statements.
-Added the state manager exit condition for algorhythm.
+Programmed part of algorithm. Going to use while loops to spin robots so compass is in the correct position. Then just make it move forward in that statement, reducing the need for other sub-statements.
+Added the state manager exit condition for algorithm.
+
+June 30th, 2019
+
+Working Algorithm, turned out while loops didnt work
+Removed boundaries, will fix later, with the while loops
+
+July 1st, 2019
+
+Worked Algorithm, fixed it.
+Worked on boundaries, it works!!
+Recording for TDP
