@@ -211,7 +211,7 @@ void Game0()
             WheelRight=0;
             LED_1=0;
             MyState=0;
-             Teleport =3;  
+             Teleport =2;  
             LoadedObjects = 0;
             WheelLeft = 0;  WheelRight = 0;  LED_1=0;
             Duration = 0;   SuperDuration = 0;

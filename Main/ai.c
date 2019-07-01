@@ -211,7 +211,7 @@ void Game0()
             WheelRight=0;
             LED_1=0;
             MyState=0;
-             Teleport =3;  
+             Teleport =2;  
             LoadedObjects = 0;
             WheelLeft = 0;  WheelRight = 0;  LED_1=0;
             Duration = 0;   SuperDuration = 0;
@@ -330,56 +330,6 @@ void Game1()
     {
         Duration--;
     }
-    else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10)))
-
-)
-    {
-        Duration = 0;
-        CurAction =1;
-    }
-    else if(((CSLeft_R>200&&CSLeft_G>200&&CSLeft_B<10)||(CSRight_R>200&&CSRight_G>200&&CSRight_B<10)))
-    {
-        Duration = 9;
-        CurAction =2;
-    }
-    else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0)
-)
-    {
-        Duration = 59;
-        CurAction =3;
-    }
-    else if(LoadedObjects==6&&xHold!=-1&&yHold!=-1)
-    {
-        Duration = 128;
-        CurAction =4;
-    }
-    else if(((CSLeft_B<=50&&CSLeft_G<=50&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G<=50&&CSRight_R<=50))&&LoadedObjects<6)
-    {
-        Duration = 49;
-        CurAction =5;
-    }
-    else if(((CSLeft_B<=50&&CSLeft_G>=230&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G>=230&&CSRight_R<=50))&&LoadedObjects<6
-
-)
-    {
-        Duration = 49;
-        CurAction =6;
-    }
-    else if(((CSLeft_R>220&&CSLeft_G<70&&CSLeft_B<70)||(CSRight_R>220&&CSRight_B<70&&CSRight_G<70))&&LoadedObjects<6)
-    {
-        Duration = 49;
-        CurAction =7;
-    }
-    else if(US_Front>=0 && US_Front<=10)
-    {
-        Duration = 0;
-        CurAction =8;
-    }
-    else if(true)
-    {
-        Duration = 0;
-        CurAction =9;
-    }
     else if(((PositionX<=5)||(PositionX>=350)||
 (PositionY<=5)||(PositionY>=260))
 
@@ -387,12 +337,113 @@ void Game1()
 
 (PositionX!=0&&PositionY!=0))
     {
-        Duration = 33;
+        Duration = 128;
+        CurAction =1;
+    }
+    else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10)))
+
+)
+    {
+        Duration = 0;
+        CurAction =2;
+    }
+    else if(((CSLeft_R>200&&CSLeft_G>200&&CSLeft_B<10)||(CSRight_R>200&&CSRight_G>200&&CSRight_B<10)))
+    {
+        Duration = 9;
+        CurAction =3;
+    }
+    else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0)
+)
+    {
+        Duration = 59;
+        CurAction =4;
+    }
+    else if(LoadedObjects==6&&xHold!=-1&&yHold!=-1)
+    {
+        Duration = 128;
+        CurAction =5;
+    }
+    else if(((CSLeft_B<=50&&CSLeft_G<=50&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G<=50&&CSRight_R<=50))&&LoadedObjects<6)
+    {
+        Duration = 49;
+        CurAction =6;
+    }
+    else if(((CSLeft_B<=50&&CSLeft_G>=230&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G>=230&&CSRight_R<=50))&&LoadedObjects<6
+
+)
+    {
+        Duration = 49;
+        CurAction =7;
+    }
+    else if(((CSLeft_R>220&&CSLeft_G<70&&CSLeft_B<70)||(CSRight_R>220&&CSRight_B<70&&CSRight_G<70))&&LoadedObjects<6)
+    {
+        Duration = 49;
+        CurAction =8;
+    }
+    else if(US_Front>=0 && US_Front<=10)
+    {
+        Duration = 0;
+        CurAction =9;
+    }
+    else if(true)
+    {
+        Duration = 0;
         CurAction =10;
     }
     switch(CurAction)
     {
         case 1:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=0;
+            MyState=0;
+            if (PositionX<=5 && Compass >= 280 || Compass <= 260){
+   WheelLeft = -1;
+                    
+   WheelRight = 1;
+                    
+
+}
+else if (PositionX>=350 && Compass >= 100 || Compass <= 80)	{
+
+		WheelLeft = -1;
+                    
+		WheelRight = 1;
+                    
+	
+}
+else if (PositionY<=5 && Compass >= 10 && Compass <= 350)	{
+		WheelLeft = -1;
+                    
+		WheelRight = 1;
+                    
+	
+}
+else if (PositionY>=260 && Compass >= 190 || Compass <= 170)	{
+		WheelLeft = -1;
+                    
+		WheelRight = 1;
+                    
+	
+}
+else {
+
+	WheelLeft = 3;
+                    
+	WheelRight = 3;
+                    
+
+}
+ Duration = 128;
+            if(((PositionX>=5)&&(PositionX<=350)&&
+(PositionY>=5)&&(PositionY<=260))
+
+&&
+
+(PositionX!=0&&PositionY!=0)
+) Duration=0;
+            break;
+        case 2:
             WheelLeft=2;
             WheelRight=2;
             LED_1=0;
@@ -402,7 +453,7 @@ void Game1()
 yHold = PositionY;
                     
             break;
-        case 2:
+        case 3:
             WheelLeft=0;
             WheelRight=0;
             LED_1=0;
@@ -433,7 +484,7 @@ WheelRight = 3;
 
 
             break;
-        case 3:
+        case 4:
             WheelLeft=0;
             WheelRight=0;
             LED_1=2;
@@ -444,7 +495,7 @@ LoadedObjects=0;
 }
             if(Duration == 1) {LoadedObjects = 0; } 
             break;
-        case 4:
+        case 5:
             WheelLeft=0;
             WheelRight=0;
             LED_1=0;
@@ -573,18 +624,6 @@ else 	{
 //Deposit
 ) Duration=0;
             break;
-        case 5:
-            WheelLeft=0;
-            WheelRight=0;
-            LED_1=1;
-            MyState=0;
-            if(Duration == 1) LoadedObjects++;
-            if(Duration < 6)
-            {
-                WheelLeft = 2;
-                WheelRight = 2;
-            }
-            break;
         case 6:
             WheelLeft=0;
             WheelRight=0;
@@ -610,6 +649,18 @@ else 	{
             }
             break;
         case 8:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=1;
+            MyState=0;
+            if(Duration == 1) LoadedObjects++;
+            if(Duration < 6)
+            {
+                WheelLeft = 2;
+                WheelRight = 2;
+            }
+            break;
+        case 9:
             WheelLeft=3;
             WheelRight=-2;
             LED_1=0;
@@ -625,50 +676,11 @@ WheelRight = 3;
 
 
             break;
-        case 9:
+        case 10:
             WheelLeft=2;
             WheelRight=2;
             LED_1=0;
             MyState=0;
-            break;
-        case 10:
-            WheelLeft=0;
-            WheelRight=0;
-            LED_1=0;
-            MyState=0;
-            if (PositionX<=5){
-   while (Compass!=270){
-   WheelLeft = -1;
-                    
-   WheelRight = 1;
-                    
-   }
-
-}
-else if (PositionX>=350)	{
-	while (Compass!=90) {
-		WheelLeft = -1;
-                    
-		WheelRight = 1;
-                    
-	}
-}
-else if (PositionY<=5)	{
-	while (Compass!=0) {
-		WheelLeft = -1;
-                    
-		WheelRight = 1;
-                    
-	}
-}
-else if (PositionY>=260)	{
-	while (Compass!=180) {
-		WheelLeft = -1;
-                    
-		WheelRight = 1;
-                    
-	}
-}
             break;
         default:
             break;
