@@ -225,8 +225,8 @@ void Game0()
                     
             break;
         case 3:
-            WheelLeft=0;
-            WheelRight=0;
+            WheelLeft=1;
+            WheelRight=-2;
             LED_1=0;
             MyState=0;
             if (US_Left > 5){
@@ -296,16 +296,6 @@ WheelRight=-5;
             WheelRight=-2;
             LED_1=0;
             MyState=0;
-            if (US_Left > US_Right){
-
-WheelLeft = -2;
-                    
-WheelRight = 3;
-                    
-
-}
-
-
             break;
         case 9:
             WheelLeft=2;

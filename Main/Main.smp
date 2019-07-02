@@ -1035,11 +1035,11 @@
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>1</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>-2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -1599,14 +1599,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Left &gt; US_Right){
-
-WheelLeft = -2;
-WheelRight = 3;
-
-}
-
-</Adv_Action>
+        <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -2033,11 +2026,11 @@ WheelRight = 3;
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>1</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>-2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -2597,14 +2590,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Left &gt; US_Right){
-
-WheelLeft = -2;
-WheelRight = 3;
-
-}
-
-</Adv_Action>
+        <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -3216,198 +3202,6 @@ LoadedObjects=0;
       </Action>
     </Node1>
     <Node1>
-      <Name>Algo</Name>
-      <Level>1</Level>
-      <Index>4</Index>
-      <IsLeaf>true</IsLeaf>
-      <State>
-        <Sensores_x0020_Ranage>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>0</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>1</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>2</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>3</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>4</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>5</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>6</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>7</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>8</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>9</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>10</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>255</ValMax>
-            <index>11</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>360</ValMax>
-            <index>12</index>
-          </Sennsor>
-          <Sennsor>
-            <ValMin>0</ValMin>
-            <ValMax>1000</ValMax>
-            <index>13</index>
-          </Sennsor>
-        </Sensores_x0020_Ranage>
-        <Adv_State>LoadedObjects == 6 &amp;&amp; xHold != -1 &amp;&amp; yHold != -1</Adv_State>
-        <AndOr>&amp;&amp;</AndOr>
-      </State>
-      <Action>
-        <Actions>
-          <Action>
-            <val>0</val>
-            <index>0</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>1</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>2</index>
-          </Action>
-          <Action>
-            <val>0</val>
-            <index>3</index>
-          </Action>
-        </Actions>
-        <ExitState>DAO</ExitState>
-        <type>Non_Interrupt</type>
-        <Adv_Action>/*
-		 0
-		 |
-		 |
-  90 - - + - - 270
-		 |
-		 |
-		180
-
-
-*/
-
-
-printf("init");
-
-if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 145 &amp;&amp; Compass &lt;= 125){
-
-	WheelLeft = -1;
-	WheelRight = 1;
-
-//Left, Down
-}
-else if (PositionX &gt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 55 &amp;&amp; Compass &lt;= 35)	{
-
-	WheelLeft = -1;
-	WheelRight = 1;
-
-//Left, Up
-}
-else if (PositionX &lt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 235 &amp;&amp; Compass &lt;= 215){
-
-	WheelLeft = -1;
-	WheelRight = 1;
-
-//Right, Down
-}
-else if (PositionX &lt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 325 &amp;&amp; Compass &lt;= 305)	{
-
-	WheelLeft = -1;
-	WheelRight = 1;
-
-//Right, Up
-}
-
-
-//------------------------------------------------------------------------------
-
-else if (PositionX &gt; xHold &amp;&amp; Compass &gt;= 100 &amp;&amp; Compass &lt;= 80)	{
-
-	WheelLeft = -1;
-	WheelRight = 1;	
-
-//Left
-}
-else if (PositionX &lt; xHold &amp;&amp; Compass &gt;= 280 &amp;&amp; Compass &lt;= 260) {
-
-	WheelLeft = -1;
-	WheelRight = 1;
-
-//Right
-}
-else if (PositionY &gt; yHold &amp;&amp; Compass &gt;= 190 &amp;&amp; Compass &lt;= 170)	{
-
-	WheelLeft = -1;
-	WheelRight = 1;
-	
-//Down
-}
-else if (PositionY &lt; yHold &amp;&amp; Compass &gt;= 10 &amp;&amp; Compass &lt;= 350)	{
-
-	WheelLeft = -1;
-	WheelRight = 1;
-
-//Up
-}
-else 	{
-
-	WheelLeft = 3;
-	WheelRight = 3;
-
-}
-
-
-
-</Adv_Action>
-        <State_Action />
-        <Duration>1</Duration>
-        <KeyAction>None</KeyAction>
-      </Action>
-    </Node1>
-    <Node1>
       <Name>SenseBlack</Name>
       <Level>1</Level>
       <Index>5</Index>
@@ -3831,14 +3625,7 @@ else 	{
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Left &gt; US_Right){
-
-WheelLeft = -2;
-WheelRight = 3;
-
-}
-
-</Adv_Action>
+        <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -3951,6 +3738,198 @@ WheelRight = 3;
         <KeyAction>None</KeyAction>
       </Action>
     </Node1>
+    <Node1>
+      <Name>Algo</Name>
+      <Level>1</Level>
+      <Index>4</Index>
+      <IsLeaf>true</IsLeaf>
+      <State>
+        <Sensores_x0020_Ranage>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>0</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>1</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>2</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>3</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>4</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>5</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>6</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>7</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>8</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>9</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>10</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>11</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>360</ValMax>
+            <index>12</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>13</index>
+          </Sennsor>
+        </Sensores_x0020_Ranage>
+        <Adv_State>LoadedObjects == 6 &amp;&amp; xHold != -1 &amp;&amp; yHold != -1</Adv_State>
+        <AndOr>&amp;&amp;</AndOr>
+      </State>
+      <Action>
+        <Actions>
+          <Action>
+            <val>0</val>
+            <index>0</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>1</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>2</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>3</index>
+          </Action>
+        </Actions>
+        <ExitState>DAO</ExitState>
+        <type>Non_Interrupt</type>
+        <Adv_Action>/*
+		 0
+		 |
+		 |
+  90 - - + - - 270
+		 |
+		 |
+		180
+
+
+*/
+
+
+printf("init");
+
+if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 145 &amp;&amp; Compass &lt;= 125){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Down
+}
+else if (PositionX &gt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 55 &amp;&amp; Compass &lt;= 35)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Up
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 235 &amp;&amp; Compass &lt;= 215){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Down
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 325 &amp;&amp; Compass &lt;= 305)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Up
+}
+
+
+//------------------------------------------------------------------------------
+
+else if (PositionX &gt; xHold &amp;&amp; Compass &gt;= 100 &amp;&amp; Compass &lt;= 80)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;	
+
+//Left
+}
+else if (PositionX &lt; xHold &amp;&amp; Compass &gt;= 280 &amp;&amp; Compass &lt;= 260) {
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right
+}
+else if (PositionY &gt; yHold &amp;&amp; Compass &gt;= 190 &amp;&amp; Compass &lt;= 170)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+	
+//Down
+}
+else if (PositionY &lt; yHold &amp;&amp; Compass &gt;= 10 &amp;&amp; Compass &lt;= 350)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Up
+}
+else 	{
+
+	WheelLeft = 3;
+	WheelRight = 3;
+
+}
+
+
+
+</Adv_Action>
+        <State_Action />
+        <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
+      </Action>
+    </Node1>
   </SM_x0020_Nodes1>
   <Game1>
     <Variables />
@@ -4056,7 +4035,7 @@ WheelRight = 3;
     </AutoScrollPostion>
   </Game8>
   <ProjectName>Main</ProjectName>
-  <ProjectFolder>C:\Users\Rayeless\Documents\Robotics 2019\Rescue-OP\Main\</ProjectFolder>
+  <ProjectFolder>C:\Users\kevin.mi\Desktop\Rescue-OP\Main\</ProjectFolder>
   <RobotID>02</RobotID>
   <IRD_Threshold1>0</IRD_Threshold1>
   <IRD_Threshold2>0</IRD_Threshold2>

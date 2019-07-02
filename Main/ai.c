@@ -225,8 +225,8 @@ void Game0()
                     
             break;
         case 3:
-            WheelLeft=0;
-            WheelRight=0;
+            WheelLeft=1;
+            WheelRight=-2;
             LED_1=0;
             MyState=0;
             if (US_Left > 5){
@@ -296,16 +296,6 @@ WheelRight=-5;
             WheelRight=-2;
             LED_1=0;
             MyState=0;
-            if (US_Left > US_Right){
-
-WheelLeft = -2;
-                    
-WheelRight = 3;
-                    
-
-}
-
-
             break;
         case 9:
             WheelLeft=2;
@@ -358,36 +348,36 @@ void Game1()
         Duration = 59;
         CurAction =4;
     }
-    else if(LoadedObjects==6&&xHold!=-1&&yHold!=-1)
-    {
-        Duration = 128;
-        CurAction =5;
-    }
     else if(((CSLeft_B<=50&&CSLeft_G<=50&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G<=50&&CSRight_R<=50))&&LoadedObjects<6)
     {
         Duration = 49;
-        CurAction =6;
+        CurAction =5;
     }
     else if(((CSLeft_B<=50&&CSLeft_G>=230&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G>=230&&CSRight_R<=50))&&LoadedObjects<6
 
 )
     {
         Duration = 49;
-        CurAction =7;
+        CurAction =6;
     }
     else if(((CSLeft_R>220&&CSLeft_G<70&&CSLeft_B<70)||(CSRight_R>220&&CSRight_B<70&&CSRight_G<70))&&LoadedObjects<6)
     {
         Duration = 49;
-        CurAction =8;
+        CurAction =7;
     }
     else if(US_Front>=0 && US_Front<=10)
     {
         Duration = 0;
-        CurAction =9;
+        CurAction =8;
     }
     else if(true)
     {
         Duration = 0;
+        CurAction =9;
+    }
+    else if(LoadedObjects==6&&xHold!=-1&&yHold!=-1)
+    {
+        Duration = 128;
         CurAction =10;
     }
     switch(CurAction)
@@ -496,6 +486,54 @@ LoadedObjects=0;
             if(Duration == 1) {LoadedObjects = 0; } 
             break;
         case 5:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=1;
+            MyState=0;
+            if(Duration == 1) LoadedObjects++;
+            if(Duration < 6)
+            {
+                WheelLeft = 2;
+                WheelRight = 2;
+            }
+            break;
+        case 6:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=1;
+            MyState=0;
+            if(Duration == 1) LoadedObjects++;
+            if(Duration < 6)
+            {
+                WheelLeft = 2;
+                WheelRight = 2;
+            }
+            break;
+        case 7:
+            WheelLeft=0;
+            WheelRight=0;
+            LED_1=1;
+            MyState=0;
+            if(Duration == 1) LoadedObjects++;
+            if(Duration < 6)
+            {
+                WheelLeft = 2;
+                WheelRight = 2;
+            }
+            break;
+        case 8:
+            WheelLeft=3;
+            WheelRight=-2;
+            LED_1=0;
+            MyState=0;
+            break;
+        case 9:
+            WheelLeft=2;
+            WheelRight=2;
+            LED_1=0;
+            MyState=0;
+            break;
+        case 10:
             WheelLeft=0;
             WheelRight=0;
             LED_1=0;
@@ -623,64 +661,6 @@ else 	{
 (((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0)
 //Deposit
 ) Duration=0;
-            break;
-        case 6:
-            WheelLeft=0;
-            WheelRight=0;
-            LED_1=1;
-            MyState=0;
-            if(Duration == 1) LoadedObjects++;
-            if(Duration < 6)
-            {
-                WheelLeft = 2;
-                WheelRight = 2;
-            }
-            break;
-        case 7:
-            WheelLeft=0;
-            WheelRight=0;
-            LED_1=1;
-            MyState=0;
-            if(Duration == 1) LoadedObjects++;
-            if(Duration < 6)
-            {
-                WheelLeft = 2;
-                WheelRight = 2;
-            }
-            break;
-        case 8:
-            WheelLeft=0;
-            WheelRight=0;
-            LED_1=1;
-            MyState=0;
-            if(Duration == 1) LoadedObjects++;
-            if(Duration < 6)
-            {
-                WheelLeft = 2;
-                WheelRight = 2;
-            }
-            break;
-        case 9:
-            WheelLeft=3;
-            WheelRight=-2;
-            LED_1=0;
-            MyState=0;
-            if (US_Left > US_Right){
-
-WheelLeft = -2;
-                    
-WheelRight = 3;
-                    
-
-}
-
-
-            break;
-        case 10:
-            WheelLeft=2;
-            WheelRight=2;
-            LED_1=0;
-            MyState=0;
             break;
         default:
             break;
