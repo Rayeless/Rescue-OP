@@ -170,7 +170,7 @@ void Game0()
     }
     else if(((CSLeft_R>200&&CSLeft_G>200&&CSLeft_B<10)||(CSRight_R>200&&CSRight_G>200&&CSRight_B<10)))
     {
-        Duration = 7;
+        Duration = 8;
         CurAction =3;
     }
     else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0))
@@ -229,22 +229,31 @@ void Game0()
             WheelRight=1;
             LED_1=0;
             MyState=0;
-            if (US_Right >= US_Left){
+            if (Duration < 3){
 
-WheelLeft = 3;
+WheelLeft = -2;
                     
 WheelRight = -2;
                     
 
-}
-else {
+}else if (US_Right > 5){
+WheelLeft = 3;
+                    
+WheelRight = -1;
+                    
+}else{
 
+WheelLeft = -1;
+                    
 WheelRight = 3;
                     
-WheelLeft = -2;
-                    
 
 }
+
+
+
+
+
 
             break;
         case 4:

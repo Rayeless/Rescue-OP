@@ -1052,21 +1052,28 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Right &gt;= US_Left){
+        <Adv_Action>if (Duration &lt; 3){
 
-WheelLeft = 3;
+WheelLeft = -2;
 WheelRight = -2;
 
-}
-else {
+}else if (US_Right &gt; 5){
+WheelLeft = 3;
+WheelRight = -1;
+}else{
 
+WheelLeft = -1;
 WheelRight = 3;
-WheelLeft = -2;
 
 }
+
+
+
+
+
 </Adv_Action>
         <State_Action />
-        <Duration>8</Duration>
+        <Duration>9</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node>
@@ -2064,21 +2071,28 @@ WheelRight = 5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Right &gt;= US_Left){
+        <Adv_Action>if (Duration &lt; 3){
 
-WheelLeft = 3;
+WheelLeft = -2;
 WheelRight = -2;
 
-}
-else {
+}else if (US_Right &gt; 5){
+WheelLeft = 3;
+WheelRight = -1;
+}else{
 
+WheelLeft = -1;
 WheelRight = 3;
-WheelLeft = -2;
 
 }
+
+
+
+
+
 </Adv_Action>
         <State_Action />
-        <Duration>8</Duration>
+        <Duration>9</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node0>
