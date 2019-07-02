@@ -1052,7 +1052,7 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 3){
+        <Adv_Action>if (Duration &lt; 5){
 
 WheelLeft = -2;
 WheelRight = -2;
@@ -2071,7 +2071,7 @@ WheelRight = 5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 3){
+        <Adv_Action>if (Duration &lt; 5){
 
 WheelLeft = -2;
 WheelRight = -2;

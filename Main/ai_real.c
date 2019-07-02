@@ -229,7 +229,7 @@ void Game0()
             WheelRight=1;
             LED_1=0;
             MyState=0;
-            if (Duration < 3){
+            if (Duration < 5){
 
 WheelLeft = -2;
                     
