@@ -808,7 +808,7 @@
             <index>12</index>
           </Sennsor>
           <Sennsor>
-            <ValMin>200</ValMin>
+            <ValMin>300</ValMin>
             <ValMax>1000</ValMax>
             <index>13</index>
           </Sennsor>
@@ -839,7 +839,7 @@
         <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
-        <KeyAction>Teleport2</KeyAction>
+        <KeyAction>Teleport3</KeyAction>
       </Action>
     </Node>
     <Node>
@@ -920,7 +920,7 @@
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)||(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))&amp;&amp;LoadedObjects&lt;6
+        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)&amp;&amp;(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
 
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
@@ -1035,11 +1035,11 @@
       <Action>
         <Actions>
           <Action>
-            <val>1</val>
+            <val>-2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>-2</val>
+            <val>1</val>
             <index>1</index>
           </Action>
           <Action>
@@ -1052,11 +1052,18 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Left &gt; 5){
-WheelLeft = -2;
-WheelRight = 1;
-}
+        <Adv_Action>if (US_Right &gt;= US_Left){
 
+WheelLeft = 3;
+WheelRight = -2;
+
+}
+else {
+
+WheelRight = 3;
+WheelLeft = -2;
+
+}
 </Adv_Action>
         <State_Action />
         <Duration>8</Duration>
@@ -1361,7 +1368,7 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
+        <Adv_State>((CSLeft_B&gt;=230&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&gt;=230&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
@@ -1582,11 +1589,11 @@ WheelRight=-5;
       <Action>
         <Actions>
           <Action>
-            <val>3</val>
+            <val>0</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>-2</val>
+            <val>0</val>
             <index>1</index>
           </Action>
           <Action>
@@ -1599,7 +1606,18 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>if (US_Right &gt;= US_Left){
+
+WheelLeft = 3;
+WheelRight = -1;
+
+}
+else {
+
+WheelRight = 3;
+WheelLeft = -1;
+
+}</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -1706,7 +1724,10 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>if (LoadedObjects &gt;= 6){
+WheelLeft = 5;
+WheelRight = 5;
+}</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -1799,7 +1820,7 @@ WheelRight=-5;
             <index>12</index>
           </Sennsor>
           <Sennsor>
-            <ValMin>200</ValMin>
+            <ValMin>300</ValMin>
             <ValMax>1000</ValMax>
             <index>13</index>
           </Sennsor>
@@ -1830,7 +1851,7 @@ WheelRight=-5;
         <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
-        <KeyAction>Teleport2</KeyAction>
+        <KeyAction>Teleport3</KeyAction>
       </Action>
     </Node0>
     <Node0>
@@ -1911,7 +1932,7 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)||(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))&amp;&amp;LoadedObjects&lt;6
+        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)&amp;&amp;(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
 
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
@@ -2026,11 +2047,11 @@ WheelRight=-5;
       <Action>
         <Actions>
           <Action>
-            <val>1</val>
+            <val>-2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>-2</val>
+            <val>1</val>
             <index>1</index>
           </Action>
           <Action>
@@ -2043,11 +2064,18 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (US_Left &gt; 5){
-WheelLeft = -2;
-WheelRight = 1;
-}
+        <Adv_Action>if (US_Right &gt;= US_Left){
 
+WheelLeft = 3;
+WheelRight = -2;
+
+}
+else {
+
+WheelRight = 3;
+WheelLeft = -2;
+
+}
 </Adv_Action>
         <State_Action />
         <Duration>8</Duration>
@@ -2352,7 +2380,7 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
+        <Adv_State>((CSLeft_B&gt;=230&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&gt;=230&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
@@ -2573,11 +2601,11 @@ WheelRight=-5;
       <Action>
         <Actions>
           <Action>
-            <val>3</val>
+            <val>0</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>-2</val>
+            <val>0</val>
             <index>1</index>
           </Action>
           <Action>
@@ -2590,7 +2618,18 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>if (US_Right &gt;= US_Left){
+
+WheelLeft = 3;
+WheelRight = -1;
+
+}
+else {
+
+WheelRight = 3;
+WheelLeft = -1;
+
+}</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -2697,7 +2736,10 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>if (LoadedObjects &gt;= 6){
+WheelLeft = 5;
+WheelRight = 5;
+}</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -2859,7 +2901,7 @@ else {
     <Node1>
       <Name>Set-Deposit</Name>
       <Level>1</Level>
-      <Index>0</Index>
+      <Index>2</Index>
       <IsLeaf>true</IsLeaf>
       <State>
         <Sensores_x0020_Ranage>
@@ -2969,7 +3011,7 @@ yHold = PositionY;</Adv_Action>
     <Node1>
       <Name>Avoid</Name>
       <Level>1</Level>
-      <Index>2</Index>
+      <Index>3</Index>
       <IsLeaf>true</IsLeaf>
       <State>
         <Sensores_x0020_Ranage>
@@ -3094,7 +3136,7 @@ WheelRight = 3;
     <Node1>
       <Name>Deposit</Name>
       <Level>1</Level>
-      <Index>3</Index>
+      <Index>4</Index>
       <IsLeaf>true</IsLeaf>
       <State>
         <Sensores_x0020_Ranage>
@@ -3608,7 +3650,7 @@ LoadedObjects=0;
       <Action>
         <Actions>
           <Action>
-            <val>3</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
@@ -3625,7 +3667,14 @@ LoadedObjects=0;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>if (US_Right&gt;US_Left){
+
+WheelLeft = -1;
+WheelRight = 2;
+
+}
+
+</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -3741,7 +3790,7 @@ LoadedObjects=0;
     <Node1>
       <Name>Algo</Name>
       <Level>1</Level>
-      <Index>4</Index>
+      <Index>10</Index>
       <IsLeaf>true</IsLeaf>
       <State>
         <Sensores_x0020_Ranage>
