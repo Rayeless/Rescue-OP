@@ -337,9 +337,9 @@ WheelLeft = -1;
             LED_1=0;
             MyState=0;
             if (LoadedObjects >= 6){
-WheelLeft = 5;
+WheelLeft = 4;
                     
-WheelRight = 5;
+WheelRight = 4;
                     
 }
             break;

@@ -1732,8 +1732,8 @@ WheelLeft = -1;
         </Actions>
         <type>Default</type>
         <Adv_Action>if (LoadedObjects &gt;= 6){
-WheelLeft = 5;
-WheelRight = 5;
+WheelLeft = 4;
+WheelRight = 4;
 }</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
@@ -2751,8 +2751,8 @@ WheelLeft = -1;
         </Actions>
         <type>Default</type>
         <Adv_Action>if (LoadedObjects &gt;= 6){
-WheelLeft = 5;
-WheelRight = 5;
+WheelLeft = 4;
+WheelRight = 4;
 }</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
@@ -4098,7 +4098,7 @@ else 	{
     </AutoScrollPostion>
   </Game8>
   <ProjectName>Main</ProjectName>
-  <ProjectFolder>C:\Users\kevin.mi\Desktop\Rescue-OP\Main\</ProjectFolder>
+  <ProjectFolder>C:\Users\leon.kwok\Desktop\ROBOTICS\Rescue-OP\Main\</ProjectFolder>
   <RobotID>02</RobotID>
   <IRD_Threshold1>0</IRD_Threshold1>
   <IRD_Threshold2>0</IRD_Threshold2>
