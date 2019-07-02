@@ -920,7 +920,7 @@
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)&amp;&amp;(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
+        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)||(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
 
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
@@ -1939,7 +1939,7 @@ WheelRight = 5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)&amp;&amp;(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
+        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)||(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
 
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>

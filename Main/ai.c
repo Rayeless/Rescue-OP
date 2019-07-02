@@ -161,7 +161,7 @@ void Game0()
         Duration = 0;
         CurAction =1;
     }
-    else if(((CSLeft_B>=200&&CSLeft_G<=70&&CSLeft_R<=70)&&(CSRight_B>=200&&CSRight_G<=70&&CSRight_R<=70))
+    else if(((CSLeft_B>=200&&CSLeft_G<=70&&CSLeft_R<=70)||(CSRight_B>=200&&CSRight_G<=70&&CSRight_R<=70))
 
 )
     {
