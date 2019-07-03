@@ -1,14 +1,13 @@
-1. Boundaris
+1. Boundaries
 
 - Keep
 
-
-2. Avoid Yellow Spots
+2. Avoid Yellow Spots // Richard
 
 - use compass and draw x and y ax
 
 
-3. Deposit
+3. Deposit //Richard
 
 - Store the position of the deposit area
 - when entering the deposit area, break 
@@ -19,7 +18,7 @@
 
 
 
-5. Pick Up
+5. Pick Up //Lucas
 
 	Super Object
 
@@ -28,7 +27,7 @@
 		- for world 1, once it has 2 different colors, look for the third color
 
 
-6. Turn
+6. Turn //Leon and Kevin
 
 - Keep for now
 
@@ -37,13 +36,11 @@
 	- back up and turn
 	
 
-7. Swap Land
+7. Swap Land //Kevin
 
-- Two methods
-	- enter with an increasing speed
-	- avoid it as a wall
-	
-8. Zoom Zoom
+- Increased Speed (4:4)
+
+8. Zoom Zoom (Forward) //Kevin
 
 - When full, 4:4
 - Else, 2:2
