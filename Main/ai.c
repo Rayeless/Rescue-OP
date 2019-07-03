@@ -85,7 +85,7 @@ DLL_EXPORT char* GetDebugInfo()
  
 DLL_EXPORT char* GetTeamName()
 {
-     return "CoSpace Team";
+     return "SAC SIM";
 }
 
 DLL_EXPORT int GetCurAction()
@@ -393,7 +393,7 @@ void Game1()
         Duration = 49;
         CurAction =5;
     }
-    else if(((CSLeft_B<=50&&CSLeft_G>=230&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G>=230&&CSRight_R<=50))&&LoadedObjects<6
+    else if(((CSLeft_B>=230&&CSLeft_G>=230&&CSLeft_R<=50)||(CSRight_B>=230&&CSRight_G>=230&&CSRight_R<=50))&&LoadedObjects<6
 
 )
     {

@@ -554,7 +554,7 @@
       <Y>0</Y>
     </AutoScrollPostion>
   </OnTimerFunc>
-  <TeamName>CoSpace Team</TeamName>
+  <TeamName>SAC SIM</TeamName>
   <SM_x0020_States>
     <State>
       <Sensores_x0020_Ranage>
@@ -3442,7 +3442,7 @@ LoadedObjects=0;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
+        <Adv_State>((CSLeft_B&gt;=230&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&gt;=230&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
 
 </Adv_State>
         <AndOr>&amp;&amp;</AndOr>
@@ -4098,7 +4098,7 @@ else 	{
     </AutoScrollPostion>
   </Game8>
   <ProjectName>Main</ProjectName>
-  <ProjectFolder>C:\Users\leon.kwok\Desktop\ROBOTICS\Rescue-OP\Main\</ProjectFolder>
+  <ProjectFolder>C:\Users\Rayeless\Documents\Robotics 2019\Rescue-OP\Main\</ProjectFolder>
   <RobotID>02</RobotID>
   <IRD_Threshold1>0</IRD_Threshold1>
   <IRD_Threshold2>0</IRD_Threshold2>

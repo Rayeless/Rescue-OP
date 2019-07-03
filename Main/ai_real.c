@@ -85,7 +85,7 @@ DLL_EXPORT char* GetDebugInfo()
  
 DLL_EXPORT char* GetTeamName()
 {
-     return "CoSpace Team";
+     return "SAC SIM";
 }
 
 DLL_EXPORT int GetCurAction()
