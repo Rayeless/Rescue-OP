@@ -841,7 +841,7 @@
   </SM_x0020_States>
   <SM_x0020_Nodes>
     <Node>
-      <Name>Teleport</Name>
+      <Name>Outside</Name>
       <Level>1</Level>
       <Index>1</Index>
       <IsLeaf>true</IsLeaf>
@@ -913,22 +913,27 @@
             <index>12</index>
           </Sennsor>
           <Sennsor>
-            <ValMin>300</ValMin>
+            <ValMin>0</ValMin>
             <ValMax>1000</ValMax>
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State />
+        <Adv_State>((PositionX&lt;=5)||(PositionX&gt;=350)||
+(PositionY&lt;=5)||(PositionY&gt;=260))
+
+&amp;&amp;
+
+(PositionX!=0 &amp;&amp; PositionY!=0)</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>-2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -941,17 +946,14 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>Red = 0;
-Black = 0;
-Cyan = 0;
-LoadedObjects = 0;</Adv_Action>
+        <Adv_Action />
         <State_Action />
-        <Duration>1</Duration>
-        <KeyAction>Teleport3</KeyAction>
+        <Duration>17</Duration>
+        <KeyAction>None</KeyAction>
       </Action>
     </Node>
     <Node>
-      <Name>Touched Death</Name>
+      <Name>Avoid</Name>
       <Level>1</Level>
       <Index>2</Index>
       <IsLeaf>true</IsLeaf>
@@ -1028,19 +1030,17 @@ LoadedObjects = 0;</Adv_Action>
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&gt;=200&amp;&amp;CSLeft_G&lt;=70&amp;&amp;CSLeft_R&lt;=70)||(CSRight_B&gt;=200&amp;&amp;CSRight_G&lt;=70&amp;&amp;CSRight_R&lt;=70))
-
-</Adv_State>
+        <Adv_State>((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;200&amp;&amp;CSLeft_B&lt;10)||(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;200&amp;&amp;CSRight_B&lt;10))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
         <Actions>
           <Action>
-            <val>5</val>
+            <val>0</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>5</val>
+            <val>0</val>
             <index>1</index>
           </Action>
           <Action>
@@ -1053,17 +1053,38 @@ LoadedObjects = 0;</Adv_Action>
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>LoadedObjects=0;
-Black = 0;
-Red = 0;
-Cyan = 0;</Adv_Action>
+        <Adv_Action>if (Duration &gt; 8){
+
+WheelLeft = -2;
+WheelRight = -2;
+printf("D");
+
+}
+
+else if (US_Right &gt; 5){
+WheelLeft = 3;
+WheelRight = -2;
+printf("h");
+}
+
+else{
+
+WheelLeft = -2;
+WheelRight = 3;
+
+}
+
+
+
+
+</Adv_Action>
         <State_Action />
-        <Duration>2</Duration>
+        <Duration>17</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node>
     <Node>
-      <Name>Avoid</Name>
+      <Name>Deposit</Name>
       <Level>1</Level>
       <Index>3</Index>
       <IsLeaf>true</IsLeaf>
@@ -1140,25 +1161,22 @@ Cyan = 0;</Adv_Action>
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;200&amp;&amp;CSLeft_B&lt;10)||(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;200&amp;&amp;CSRight_B&lt;10))
-
-&amp;&amp;
-
-(LoadedObjects != 0)</Adv_State>
+        <Adv_State>(((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;=160&amp;&amp;CSLeft_B&lt;10)&amp;&amp;(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;=160&amp;&amp;CSRight_B&lt;10))&amp;&amp;LoadedObjects&gt;0)
+</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
         <Actions>
           <Action>
-            <val>2</val>
+            <val>0</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>-2</val>
+            <val>0</val>
             <index>1</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>2</index>
           </Action>
           <Action>
@@ -1166,16 +1184,23 @@ Cyan = 0;</Adv_Action>
             <index>3</index>
           </Action>
         </Actions>
-        <ExitState>White</ExitState>
-        <type>Non_Interrupt</type>
-        <Adv_Action />
+        <type>Default</type>
+        <Adv_Action>if(Duration==1){
+LoadedObjects=0;
+Black = 0;
+Red = 0;
+Cyan = 0;
+
+}
+
+printf("depow2");</Adv_Action>
         <State_Action />
-        <Duration>27</Duration>
-        <KeyAction>None</KeyAction>
+        <Duration>60</Duration>
+        <KeyAction>Deposit</KeyAction>
       </Action>
     </Node>
     <Node>
-      <Name>Deposit</Name>
+      <Name>Set-Deposit</Name>
       <Level>1</Level>
       <Index>4</Index>
       <IsLeaf>true</IsLeaf>
@@ -1252,21 +1277,23 @@ Cyan = 0;</Adv_Action>
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>(((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;=160&amp;&amp;CSLeft_B&lt;10)&amp;&amp;(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;=160&amp;&amp;CSRight_B&lt;10))&amp;&amp;LoadedObjects&gt;0)</Adv_State>
+        <Adv_State>(((CSLeft_R&gt;200&amp;&amp;CSLeft_G&gt;=160&amp;&amp;CSLeft_B&lt;10)&amp;&amp;(CSRight_R&gt;200&amp;&amp;CSRight_G&gt;=160&amp;&amp;CSRight_B&lt;10)))
+
+</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>1</index>
           </Action>
           <Action>
-            <val>2</val>
+            <val>0</val>
             <index>2</index>
           </Action>
           <Action>
@@ -1275,16 +1302,11 @@ Cyan = 0;</Adv_Action>
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if(Duration==1){
-LoadedObjects=0;
-Red = 0;
-Cyan = 0;
-Black = 0;
-}
-</Adv_Action>
+        <Adv_Action>xHold = PositionX;
+yHold = PositionY;</Adv_Action>
         <State_Action />
-        <Duration>60</Duration>
-        <KeyAction>Deposit</KeyAction>
+        <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
       </Action>
     </Node>
     <Node>
@@ -1369,7 +1391,7 @@ Black = 0;
 
 &amp;&amp;
 
-Black &lt; 2</Adv_State>
+(!(Black == 2 &amp;&amp; Red == 2 || Cyan == 2))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -1393,14 +1415,15 @@ Black &lt; 2</Adv_State>
         </Actions>
         <type>Default</type>
         <Adv_Action>if (Duration == 1)
-Black++;</Adv_Action>
+Black++;
+</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
       </Action>
     </Node>
     <Node>
-      <Name>SenseG</Name>
+      <Name>SenseBlue</Name>
       <Level>1</Level>
       <Index>6</Index>
       <IsLeaf>true</IsLeaf>
@@ -1481,7 +1504,7 @@ Black++;</Adv_Action>
 
 &amp;&amp;
 
-Cyan &lt; 2</Adv_State>
+(!(Cyan == 2 &amp;&amp; Red == 2 || Black == 2))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -1505,7 +1528,8 @@ Cyan &lt; 2</Adv_State>
         </Actions>
         <type>Default</type>
         <Adv_Action>if (Duration == 1)
-Cyan++;</Adv_Action>
+Cyan++;
+</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -1589,11 +1613,11 @@ Cyan++;</Adv_Action>
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;90&amp;&amp;CSLeft_B&lt;90)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;90&amp;&amp;CSRight_G&lt;90))&amp;&amp; LoadedObjects&lt;6
+        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;70&amp;&amp;CSLeft_B&lt;70)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;70&amp;&amp;CSRight_G&lt;70))&amp;&amp; LoadedObjects&lt;6
 
 &amp;&amp;
 
-Red &lt; 2</Adv_State>
+(!(Red == 2 &amp;&amp; Black == 2 || Cyan == 2))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -1616,9 +1640,9 @@ Red &lt; 2</Adv_State>
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>
-if (Duration == 1)
-Red++;</Adv_Action>
+        <Adv_Action>if (Duration == 1)
+Red++;
+</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -1736,7 +1760,115 @@ else {
 WheelRight = 3;
 WheelLeft = -1;
 
-}</Adv_Action>
+}
+</Adv_Action>
+        <State_Action />
+        <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
+      </Action>
+    </Node>
+    <Node>
+      <Name>Swampland</Name>
+      <Level>1</Level>
+      <Index>0</Index>
+      <IsLeaf>true</IsLeaf>
+      <State>
+        <Sensores_x0020_Ranage>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>0</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>1</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>2</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>140</ValMin>
+            <ValMax>160</ValMax>
+            <index>3</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>150</ValMin>
+            <ValMax>170</ValMax>
+            <index>4</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>200</ValMin>
+            <ValMax>210</ValMax>
+            <index>5</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>140</ValMin>
+            <ValMax>160</ValMax>
+            <index>6</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>150</ValMin>
+            <ValMax>170</ValMax>
+            <index>7</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>200</ValMin>
+            <ValMax>210</ValMax>
+            <index>8</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>9</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>10</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>11</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>360</ValMax>
+            <index>12</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>13</index>
+          </Sennsor>
+        </Sensores_x0020_Ranage>
+        <Adv_State />
+        <AndOr>&amp;&amp;</AndOr>
+      </State>
+      <Action>
+        <Actions>
+          <Action>
+            <val>5</val>
+            <index>0</index>
+          </Action>
+          <Action>
+            <val>5</val>
+            <index>1</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>2</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>3</index>
+          </Action>
+        </Actions>
+        <type>Default</type>
+        <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -1826,11 +1958,11 @@ WheelLeft = -1;
       <Action>
         <Actions>
           <Action>
-            <val>4</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>4</val>
+            <val>2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -1843,11 +1975,198 @@ WheelLeft = -1;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>
-if (LoadedObjects &gt; 1){
-WheelLeft = 2;
-WheelRight=2;
-}</Adv_Action>
+        <Adv_Action />
+        <State_Action />
+        <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
+      </Action>
+    </Node>
+    <Node>
+      <Name>Algo</Name>
+      <Level>1</Level>
+      <Index>10</Index>
+      <IsLeaf>true</IsLeaf>
+      <State>
+        <Sensores_x0020_Ranage>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>0</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>1</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>2</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>3</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>4</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>5</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>6</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>7</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>8</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>9</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>10</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>11</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>360</ValMax>
+            <index>12</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>13</index>
+          </Sennsor>
+        </Sensores_x0020_Ranage>
+        <Adv_State>LoadedObjects == 6 &amp;&amp; xHold != -1 &amp;&amp; yHold != -1</Adv_State>
+        <AndOr>&amp;&amp;</AndOr>
+      </State>
+      <Action>
+        <Actions>
+          <Action>
+            <val>0</val>
+            <index>0</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>1</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>2</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>3</index>
+          </Action>
+        </Actions>
+        <type>Default</type>
+        <Adv_Action>/*
+		 0
+		 |
+		 |
+  90 - - + - - 270
+		 |
+		 |
+		180
+
+
+*/
+
+
+printf("init");
+
+if (PositionX &gt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 145 &amp;&amp; Compass &lt;= 125){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Down
+}
+else if (PositionX &gt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 55 &amp;&amp; Compass &lt;= 35)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Left, Up
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &gt; yHold &amp;&amp; Compass &gt;= 235 &amp;&amp; Compass &lt;= 215){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Down
+}
+else if (PositionX &lt; xHold &amp;&amp; PositionY &lt; yHold &amp;&amp; Compass &gt;= 325 &amp;&amp; Compass &lt;= 305)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Up
+}
+
+
+//------------------------------------------------------------------------------
+
+else if (PositionX &gt; xHold &amp;&amp; Compass &gt;= 100 &amp;&amp; Compass &lt;= 80)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;	
+
+//Left
+}
+else if (PositionX &lt; xHold &amp;&amp; Compass &gt;= 280 &amp;&amp; Compass &lt;= 260) {
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right
+}
+else if (PositionY &gt; yHold &amp;&amp; Compass &gt;= 190 &amp;&amp; Compass &lt;= 170)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+	
+//Down
+}
+else if (PositionY &lt; yHold &amp;&amp; Compass &gt;= 10 &amp;&amp; Compass &lt;= 350)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Up
+}
+else 	{
+
+	WheelLeft = 3;
+	WheelRight = 3;
+
+}
+
+
+
+</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>
@@ -1858,7 +2177,7 @@ WheelRight=2;
     <Variables />
     <Statements />
     <ParameterDesps />
-    <Name>Game0</Name>
+    <Name>Game1</Name>
     <ReturnType>Void</ReturnType>
     <FuncType>Fixed</FuncType>
     <AutoScrollPostion>
@@ -2983,11 +3302,11 @@ WheelRight=2;
       <Action>
         <Actions>
           <Action>
-            <val>0</val>
+            <val>2</val>
             <index>0</index>
           </Action>
           <Action>
-            <val>0</val>
+            <val>-2</val>
             <index>1</index>
           </Action>
           <Action>
@@ -2999,37 +3318,10 @@ WheelRight=2;
             <index>3</index>
           </Action>
         </Actions>
-        <ExitState>Bound</ExitState>
-        <type>Non_Interrupt</type>
-        <Adv_Action>if (PositionX&lt;=5 &amp;&amp; Compass &gt;= 280 || Compass &lt;= 260){
-   WheelLeft = -1;
-   WheelRight = 1;
-
-}
-else if (PositionX&gt;=350 &amp;&amp; Compass &gt;= 100 || Compass &lt;= 80)	{
-
-		WheelLeft = -1;
-		WheelRight = 1;
-	
-}
-else if (PositionY&lt;=5 &amp;&amp; Compass &gt;= 10 &amp;&amp; Compass &lt;= 350)	{
-		WheelLeft = -1;
-		WheelRight = 1;
-	
-}
-else if (PositionY&gt;=260 &amp;&amp; Compass &gt;= 190 || Compass &lt;= 170)	{
-		WheelLeft = -1;
-		WheelRight = 1;
-	
-}
-else {
-
-	WheelLeft = 3;
-	WheelRight = 3;
-
-}</Adv_Action>
+        <type>Default</type>
+        <Adv_Action />
         <State_Action />
-        <Duration>34</Duration>
+        <Duration>17</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node1>
@@ -3134,7 +3426,7 @@ else {
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &gt; 12){
+        <Adv_Action>if (Duration &gt; 8){
 
 WheelLeft = -2;
 WheelRight = -2;
@@ -3160,7 +3452,7 @@ WheelRight = 3;
 
 </Adv_Action>
         <State_Action />
-        <Duration>20</Duration>
+        <Duration>17</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node1>
@@ -3843,6 +4135,113 @@ WheelLeft = -1;
 
 }
 </Adv_Action>
+        <State_Action />
+        <Duration>1</Duration>
+        <KeyAction>None</KeyAction>
+      </Action>
+    </Node1>
+    <Node1>
+      <Name>Swampland</Name>
+      <Level>1</Level>
+      <Index>0</Index>
+      <IsLeaf>true</IsLeaf>
+      <State>
+        <Sensores_x0020_Ranage>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>0</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>1</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>2</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>140</ValMin>
+            <ValMax>160</ValMax>
+            <index>3</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>150</ValMin>
+            <ValMax>170</ValMax>
+            <index>4</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>200</ValMin>
+            <ValMax>210</ValMax>
+            <index>5</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>140</ValMin>
+            <ValMax>160</ValMax>
+            <index>6</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>150</ValMin>
+            <ValMax>170</ValMax>
+            <index>7</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>200</ValMin>
+            <ValMax>210</ValMax>
+            <index>8</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>9</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>10</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>255</ValMax>
+            <index>11</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>360</ValMax>
+            <index>12</index>
+          </Sennsor>
+          <Sennsor>
+            <ValMin>0</ValMin>
+            <ValMax>1000</ValMax>
+            <index>13</index>
+          </Sennsor>
+        </Sensores_x0020_Ranage>
+        <Adv_State />
+        <AndOr>&amp;&amp;</AndOr>
+      </State>
+      <Action>
+        <Actions>
+          <Action>
+            <val>5</val>
+            <index>0</index>
+          </Action>
+          <Action>
+            <val>5</val>
+            <index>1</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>2</index>
+          </Action>
+          <Action>
+            <val>0</val>
+            <index>3</index>
+          </Action>
+        </Actions>
+        <type>Default</type>
+        <Adv_Action />
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>None</KeyAction>

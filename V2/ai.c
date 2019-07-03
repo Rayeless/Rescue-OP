@@ -388,12 +388,12 @@ void Game1()
 
 (PositionX!=0&&PositionY!=0))
     {
-        Duration = 128;
+        Duration = 16;
         CurAction =1;
     }
     else if(((CSLeft_R>200&&CSLeft_G>200&&CSLeft_B<10)||(CSRight_R>200&&CSRight_G>200&&CSRight_B<10)))
     {
-        Duration = 19;
+        Duration = 16;
         CurAction =2;
     }
     else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0)
@@ -441,75 +441,35 @@ void Game1()
         Duration = 0;
         CurAction =8;
     }
-    else if(true)
+    else if(CSLeft_R>=140 && CSLeft_R<=160 && CSLeft_G>=150 && CSLeft_G<=170 && CSLeft_B>=200 && CSLeft_B<=210 && CSRight_R>=140 && CSRight_R<=160 && CSRight_G>=150 && CSRight_G<=170 && CSRight_B>=200 && CSRight_B<=210)
     {
         Duration = 0;
         CurAction =9;
     }
-    else if(LoadedObjects==6&&xHold!=-1&&yHold!=-1)
+    else if(true)
     {
         Duration = 0;
         CurAction =10;
     }
+    else if(LoadedObjects==6&&xHold!=-1&&yHold!=-1)
+    {
+        Duration = 0;
+        CurAction =11;
+    }
     switch(CurAction)
     {
         case 1:
-            WheelLeft=0;
-            WheelRight=0;
+            WheelLeft=2;
+            WheelRight=-2;
             LED_1=0;
             MyState=0;
-            if (PositionX<=5 && Compass >= 280 || Compass <= 260){
-   WheelLeft = -1;
-                    
-   WheelRight = 1;
-                    
-
-}
-else if (PositionX>=350 && Compass >= 100 || Compass <= 80)	{
-
-		WheelLeft = -1;
-                    
-		WheelRight = 1;
-                    
-	
-}
-else if (PositionY<=5 && Compass >= 10 && Compass <= 350)	{
-		WheelLeft = -1;
-                    
-		WheelRight = 1;
-                    
-	
-}
-else if (PositionY>=260 && Compass >= 190 || Compass <= 170)	{
-		WheelLeft = -1;
-                    
-		WheelRight = 1;
-                    
-	
-}
-else {
-
-	WheelLeft = 3;
-                    
-	WheelRight = 3;
-                    
-
-}
- Duration = 128;
-            if(((PositionX>=5)&&(PositionX<=350)&&
-(PositionY>=5)&&(PositionY<=260))
-
-&&
-
-(PositionX!=0&&PositionY!=0)
-) Duration=0;
             break;
         case 2:
             WheelLeft=0;
             WheelRight=0;
             LED_1=0;
             MyState=0;
-            if (Duration > 12){
+            if (Duration > 8){
 
 WheelLeft = -2;
                     
@@ -646,12 +606,18 @@ WheelLeft = -1;
 
             break;
         case 9:
+            WheelLeft=5;
+            WheelRight=5;
+            LED_1=0;
+            MyState=0;
+            break;
+        case 10:
             WheelLeft=2;
             WheelRight=2;
             LED_1=0;
             MyState=0;
             break;
-        case 10:
+        case 11:
             WheelLeft=0;
             WheelRight=0;
             LED_1=0;
