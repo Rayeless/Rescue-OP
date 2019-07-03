@@ -87,6 +87,27 @@
       <InitialValue>-1</InitialValue>
       <ReadOnly>false</ReadOnly>
     </GVar>
+    <GVar>
+      <Name>Black</Name>
+      <VarType>Int16</VarType>
+      <ArraryLength>0</ArraryLength>
+      <InitialValue>0</InitialValue>
+      <ReadOnly>false</ReadOnly>
+    </GVar>
+    <GVar>
+      <Name>Red</Name>
+      <VarType>Int16</VarType>
+      <ArraryLength>0</ArraryLength>
+      <InitialValue>0</InitialValue>
+      <ReadOnly>false</ReadOnly>
+    </GVar>
+    <GVar>
+      <Name>Cyan</Name>
+      <VarType>Int16</VarType>
+      <ArraryLength>0</ArraryLength>
+      <InitialValue>0</InitialValue>
+      <ReadOnly>false</ReadOnly>
+    </GVar>
   </Varibles>
   <MB_Interface>
     <InputPins>
@@ -836,7 +857,10 @@
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Red = 0;
+Black = 0;
+Cyan = 0;
+LoadedObjects = 0;</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>Teleport3</KeyAction>
@@ -1268,7 +1292,11 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&lt;=50&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&lt;=50&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6</Adv_State>
+        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&lt;=50&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&lt;=50&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
+
+&amp;&amp;
+
+Black &lt; 2</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -1291,7 +1319,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Black++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -1376,7 +1404,10 @@ WheelRight=-5;
           </Sennsor>
         </Sensores_x0020_Ranage>
         <Adv_State>((CSLeft_B&gt;=230&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&gt;=230&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
-</Adv_State>
+
+&amp;&amp;
+
+Cyan &lt; 2</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -1399,7 +1430,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Cyan++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -1483,7 +1514,11 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;90&amp;&amp;CSLeft_B&lt;90)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;90&amp;&amp;CSRight_G&lt;90))&amp;&amp; LoadedObjects&lt;6</Adv_State>
+        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;90&amp;&amp;CSLeft_B&lt;90)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;90&amp;&amp;CSRight_G&lt;90))&amp;&amp; LoadedObjects&lt;6
+
+&amp;&amp;
+
+Red &lt; 2</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -1506,7 +1541,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Red++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -1855,7 +1890,10 @@ WheelRight = 4;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Red = 0;
+Black = 0;
+Cyan = 0;
+LoadedObjects = 0;</Adv_Action>
         <State_Action />
         <Duration>1</Duration>
         <KeyAction>Teleport3</KeyAction>
@@ -2287,7 +2325,11 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&lt;=50&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&lt;=50&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6</Adv_State>
+        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&lt;=50&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&lt;=50&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
+
+&amp;&amp;
+
+Black &lt; 2</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -2310,7 +2352,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Black++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -2395,7 +2437,10 @@ WheelRight=-5;
           </Sennsor>
         </Sensores_x0020_Ranage>
         <Adv_State>((CSLeft_B&gt;=230&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&gt;=230&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
-</Adv_State>
+
+&amp;&amp;
+
+Cyan &lt; 2</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -2418,7 +2463,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Cyan++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -2502,7 +2547,11 @@ WheelRight=-5;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;90&amp;&amp;CSLeft_B&lt;90)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;90&amp;&amp;CSRight_G&lt;90))&amp;&amp; LoadedObjects&lt;6</Adv_State>
+        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;90&amp;&amp;CSLeft_B&lt;90)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;90&amp;&amp;CSRight_G&lt;90))&amp;&amp; LoadedObjects&lt;6
+
+&amp;&amp;
+
+Red &lt; 2</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -2525,7 +2574,7 @@ WheelRight=-5;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Red++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -3123,15 +3172,21 @@ yHold = PositionY;</Adv_Action>
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action>if (Duration &lt; 6){
+        <Adv_Action>if (Duration &gt; 10){
 
 WheelLeft = -2;
 WheelRight = -2;
+printf("D");
 
-}else if (US_Right &gt; 5){
+}
+
+else if (US_Right &gt; 5){
 WheelLeft = 3;
 WheelRight = -2;
-}else{
+printf("h");
+}
+
+else{
 
 WheelLeft = -2;
 WheelRight = 3;
@@ -3143,7 +3198,7 @@ WheelRight = 3;
 
 </Adv_Action>
         <State_Action />
-        <Duration>10</Duration>
+        <Duration>16</Duration>
         <KeyAction>None</KeyAction>
       </Action>
     </Node1>
@@ -3251,6 +3306,10 @@ WheelRight = 3;
         <type>Default</type>
         <Adv_Action>if(Duration==1){
 LoadedObjects=0;
+Black = 0;
+Red = 0;
+Cyan = 0;
+
 }</Adv_Action>
         <State_Action />
         <Duration>60</Duration>
@@ -3335,7 +3394,11 @@ LoadedObjects=0;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&lt;=50&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&lt;=50&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6</Adv_State>
+        <Adv_State>((CSLeft_B&lt;=50&amp;&amp;CSLeft_G&lt;=50&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&lt;=50&amp;&amp;CSRight_G&lt;=50&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
+
+&amp;&amp;
+
+(!(Black == 2 &amp;&amp; Red == 2 || Cyan == 2))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -3358,7 +3421,7 @@ LoadedObjects=0;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Black++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -3444,7 +3507,9 @@ LoadedObjects=0;
         </Sensores_x0020_Ranage>
         <Adv_State>((CSLeft_B&gt;=230&amp;&amp;CSLeft_G&gt;=230&amp;&amp;CSLeft_R&lt;=50)||(CSRight_B&gt;=230&amp;&amp;CSRight_G&gt;=230&amp;&amp;CSRight_R&lt;=50))&amp;&amp;LoadedObjects&lt;6
 
-</Adv_State>
+&amp;&amp;
+
+(!(Cyan == 2 &amp;&amp; Red == 2 || Black == 2))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -3467,7 +3532,7 @@ LoadedObjects=0;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Cyan++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -3551,7 +3616,11 @@ LoadedObjects=0;
             <index>13</index>
           </Sennsor>
         </Sensores_x0020_Ranage>
-        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;70&amp;&amp;CSLeft_B&lt;70)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;70&amp;&amp;CSRight_G&lt;70))&amp;&amp; LoadedObjects&lt;6</Adv_State>
+        <Adv_State>((CSLeft_R&gt;220&amp;&amp;CSLeft_G&lt;70&amp;&amp;CSLeft_B&lt;70)||(CSRight_R&gt;220&amp;&amp;CSRight_B&lt;70&amp;&amp;CSRight_G&lt;70))&amp;&amp; LoadedObjects&lt;6
+
+&amp;&amp;
+
+(!(Red == 2 &amp;&amp; Black == 2 || Cyan == 2))</Adv_State>
         <AndOr>&amp;&amp;</AndOr>
       </State>
       <Action>
@@ -3574,7 +3643,7 @@ LoadedObjects=0;
           </Action>
         </Actions>
         <type>Default</type>
-        <Adv_Action />
+        <Adv_Action>Red++;</Adv_Action>
         <State_Action />
         <Duration>50</Duration>
         <KeyAction>FindObject</KeyAction>
@@ -3668,7 +3737,7 @@ LoadedObjects=0;
             <index>0</index>
           </Action>
           <Action>
-            <val>-2</val>
+            <val>-1</val>
             <index>1</index>
           </Action>
           <Action>
@@ -4097,8 +4166,8 @@ else 	{
       <Y>0</Y>
     </AutoScrollPostion>
   </Game8>
-  <ProjectName>Main</ProjectName>
-  <ProjectFolder>C:\Users\Rayeless\Documents\Robotics 2019\Rescue-OP\Main\</ProjectFolder>
+  <ProjectName>V2</ProjectName>
+  <ProjectFolder>C:\Users\Rayeless\Documents\Robotics 2019\Rescue-OP\V2\</ProjectFolder>
   <RobotID>02</RobotID>
   <IRD_Threshold1>0</IRD_Threshold1>
   <IRD_Threshold2>0</IRD_Threshold2>
