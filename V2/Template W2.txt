@@ -1,0 +1,52 @@
+1. Boundaris
+
+- Keep
+
+
+2. Avoid Yellow Spots
+
+- use compass and draw x and y ax
+
+
+3. Deposit
+
+- Store the position of the deposit area
+- when entering the deposit area, break 
+- when exiting the deposit area, turn 180 and go straight
+
+
+4. Al
+
+
+
+5. Pick Up
+
+	Super Object
+
+		- Once it has 2 of the same color and 2 of the same of the other color, stop picking up from that two colors
+		- Use the x and y coordinates of the super object
+		- for world 1, once it has 2 different colors, look for the third color
+
+
+6. Turn
+
+- Keep for now
+
+- Addition
+	- smaller/slower turns
+	- back up and turn
+	
+
+7. Swap Land
+
+- Two methods
+	- enter with an increasing speed
+	- avoid it as a wall
+	
+8. Zoom Zoom
+
+- When full, 4:4
+- Else, 2:2
+	
+
+
