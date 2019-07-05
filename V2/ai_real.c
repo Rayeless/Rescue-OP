@@ -183,7 +183,7 @@ void Game0()
     }
     else if((((CSLeft_R>200&&CSLeft_G>=160&&CSLeft_B<10)&&(CSRight_R>200&&CSRight_G>=160&&CSRight_B<10))&&LoadedObjects>0))
     {
-        Duration = 59;
+        Duration = 69;
         CurAction =4;
     }
     else if(((CSLeft_B<=50&&CSLeft_G<=50&&CSLeft_R<=50)||(CSRight_B<=50&&CSRight_G<=50&&CSRight_R<=50))&&LoadedObjects<6
@@ -213,15 +213,20 @@ Red<2)
         Duration = 49;
         CurAction =7;
     }
-    else if(US_Front>=0 && US_Front<=10)
+    else if(US_Left>=0 && US_Left<=8)
     {
         Duration = 0;
         CurAction =8;
     }
-    else if(true)
+    else if(US_Right>=0 && US_Right<=8)
     {
         Duration = 0;
         CurAction =9;
+    }
+    else if(true)
+    {
+        Duration = 0;
+        CurAction =10;
     }
     switch(CurAction)
     {
@@ -259,11 +264,11 @@ Cyan = 0;
             break;
         case 3:
             WheelLeft=2;
-            WheelRight=-2;
+            WheelRight=-1;
             LED_1=0;
             MyState=0;
  Duration = 128;
-            if(CSLeft_R>=200 && CSLeft_R<=255 && CSLeft_G>=200 && CSLeft_G<=255 && CSLeft_B>=200 && CSLeft_B<=255 && CSRight_R>=200 && CSRight_R<=255 && CSRight_G>=200 && CSRight_G<=255 && CSRight_B>=200 && CSRight_B<=255) Duration=0;
+            if((!((CSLeft_R>200&&CSLeft_G>200&&CSLeft_B<10)||(CSRight_R>200&&CSRight_G>200&&CSRight_B<10)))) Duration=0;
             break;
         case 4:
             WheelLeft=0;
@@ -279,6 +284,14 @@ Cyan = 0;
                     
 Black = 0;
                     
+}
+if (Duration <20){
+
+WheelLeft = -1;
+                    
+WheelRight = 1;
+                    
+
 }
 
             if(Duration == 1) {LoadedObjects = 0; } 
@@ -330,34 +343,24 @@ Red++;
             }
             break;
         case 8:
-            WheelLeft=0;
-            WheelRight=0;
+            WheelLeft=1;
+            WheelRight=-2;
             LED_1=0;
             MyState=0;
-            if (US_Right >= US_Left){
-
-WheelLeft = 3;
-                    
-WheelRight = -1;
-                    
-
-}
-else {
-
-WheelRight = 3;
-                    
-WheelLeft = -1;
-                    
-
-}
             break;
         case 9:
+            WheelLeft=-2;
+            WheelRight=1;
+            LED_1=0;
+            MyState=0;
+            break;
+        case 10:
             WheelLeft=4;
             WheelRight=4;
             LED_1=0;
             MyState=0;
             
-if (LoadedObjects > 1){
+if (LoadedObjects>0 && LoadedObjects < 6){
 WheelLeft = 2;
                     
 WheelRight=2;
