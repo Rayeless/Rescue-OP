@@ -1,0 +1,85 @@
+/*
+		 0
+		 |
+		 |
+  90 - - + - - 270
+		 |
+		 |
+		180
+
+
+*/
+if (PositionX > xHold && PositionY > yHold && (Compass >= 145 || Compass <= 125)){
+
+	//WheelLeft = -1;
+	//WheelRight = 1;
+
+printf("ld");
+
+//Left, Down
+}
+else if (PositionX > xHold && PositionY < yHold && (Compass >= 55 || Compass <= 35))	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+	
+	printf("lu");
+
+//Left, Up
+}
+else if (PositionX < xHold && PositionY > yHold && (Compass >= 235 || Compass <= 215)){
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Down
+}
+else if (PositionX < xHold && PositionY < yHold && (Compass >= 325 || Compass <= 305))	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right, Up
+}
+
+
+//------------------------------------------------------------------------------
+
+else if (PositionX > xHold && (Compass >= 100 || Compass <= 80))	{
+
+	WheelLeft = -1;
+	WheelRight = 1;	
+
+//Left
+}
+else if (PositionX < xHold && (Compass >= 280 || Compass <= 260)) {
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Right
+}
+else if (PositionY > yHold && (Compass >= 190 || Compass <= 170))	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+	
+//Down
+}
+else if (PositionY < yHold && Compass >= 10 && Compass <= 350)	{
+
+	WheelLeft = -1;
+	WheelRight = 1;
+
+//Up
+}
+else 	{
+
+	WheelLeft = 3;
+	WheelRight = 3;
+
+printf("alg");
+
+}
+
+
